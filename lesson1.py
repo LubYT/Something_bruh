@@ -23,4 +23,3 @@ def character_counter_v2(s):
         print(f'количество "{sym}" = {counter}')
     print(f'{ops}')
 
-character_counter_v2('abcbcvbc')character_counter_v2('abcc')
