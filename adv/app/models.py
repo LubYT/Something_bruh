@@ -33,6 +33,15 @@ class Advertisements(models.Model):
             created_time=self.created_at.time().strftime('%H:%M:%S')
             return  format_html('<span>Сегодня в {}</span>',created_time)
         return self.created_at.strftime('%d %m %y в %H:%M:%S')
+
+    @admin.display(description='дата обновления')
+    def updated_date(self):
+        from django.utils import timezone
+        from django.utils.html import format_html
+        if self.updated_date.date() == timezone.now().date():
+            updated_time = self.updated_at.time().strftime('%H:%M:%S')
+            return format_html('<span style="color: red;">Сегодня в {}</span>', updated_time)
+        return self.updated_date.strftime('%d %m %y в %H:%M:%S')
     def __str__(self):
         return f"Advertisement(id={self.id}, title={self.title}, price={self.price})"
     class Meta:
