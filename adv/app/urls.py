@@ -8,3 +8,4 @@ urlpatterns = [
     path('advertisement-post/', advertisement_post, name='adv_post'),
     path('login/', CustomLoginView.as_view(), name='login'),
 ]
+
